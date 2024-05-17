@@ -17,13 +17,13 @@ const BlogPage = async ({ params }: { params: BlogPageProps }) => {
     <div className="p-6">
       <div className="flex items-center gap-4 pb-3 text-2xl font-bold">
         <div className="pr-6">{result.blog.title}</div>
-        <EditButton id={id}/>
+        <EditButton id={id} />
         <DeleteButton id={id} />
       </div>
-      <div className="pb-6">{result.blog.author}</div>
+      <div className=" pb-6">{result.blog.author}</div>
       <Image
         src={result.blog.image}
-        width={500}
+        width={200}
         height={300}
         alt="blog image"
       />

@@ -4,7 +4,7 @@ import React from "react";
 const Page = () => {
   return (
     <div>
-      <CreateBlog type='create'/>
+      <CreateBlog type='create' id="null"/>
     </div>
   );
 };

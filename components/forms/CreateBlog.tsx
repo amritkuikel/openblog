@@ -18,13 +18,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Editor } from "@tinymce/tinymce-react";
-import { createBlog } from "@/lib/actions/blog.action";
+import { createBlog, editBlog } from "@/lib/actions/blog.action";
 import { useRouter } from "next/navigation";
 
 interface Props {
   type: string;
+  id: string;
 }
-const CreateBlog = ({ type }: Props) => {
+const CreateBlog = ({ type, id }: Props) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [imageUploaded, setImageUploaded] = useState<boolean>(false);
@@ -49,24 +50,23 @@ const CreateBlog = ({ type }: Props) => {
     values.content = innerText;
     console.log(uploadedImageUrl);
     setIsSubmitting(!isSubmitting);
-    if(type==="create"){
+    if (type === "create") {
       await createBlog({
         title: values.title,
         author: values.author,
         image: uploadedImageUrl,
         content: values.content,
       });
+    } else {
+      await editBlog({
+        id,
+        title: values.title,
+        author: values.author,
+        image: uploadedImageUrl,
+        content: values.content,
+      });
     }
-    else{
-      // await editBlog({
-      //   // id:values._id,
-      //   title: values.title,
-      //   author: values.author,
-      //   image: uploadedImageUrl,
-      //   content: values.content,
-      // });
-    }
-   
+
     toast("Successful");
     router.push("/");
     router.refresh();

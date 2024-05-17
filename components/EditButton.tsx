@@ -11,7 +11,7 @@ interface EditButtonProps {
 const EditButton: React.FC<EditButtonProps> = ({ id }) => {
   const router = useRouter();
   async function handleEditClick() {
-    router.push("/edit-blog");
+    router.push(`/edit-blog/${id}`);
   }
 
   return <Button onClick={handleEditClick}>Edit</Button>;

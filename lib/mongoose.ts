@@ -1,8 +1,17 @@
 import mongoose from "mongoose";
-const url =
-  "mongodb+srv://amritkuikel5689:asdfghjkl@cluster0.rlam2sw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-export default function mongooseConnect() {
-  mongoose.connect(url).then(() => {
-    console.log("db connected");
-  });
+
+const url = process.env.MONGO_URL;
+
+export default async function mongooseConnect() {
+  try {
+    if (!url) {
+      throw new Error("MongoDB URL is not defined");
+    }
+
+    await mongoose.connect(url);
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
 }
+

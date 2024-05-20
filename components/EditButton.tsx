@@ -14,7 +14,7 @@ const EditButton: React.FC<EditButtonProps> = ({ id }) => {
     router.push(`/edit-blog/${id}`);
   }
 
-  return <Button onClick={handleEditClick}>Edit</Button>;
+  return <Button onClick={handleEditClick} className="w-20">Edit</Button>;
 };
 
 export default EditButton;

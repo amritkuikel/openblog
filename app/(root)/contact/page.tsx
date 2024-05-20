@@ -14,8 +14,8 @@ const Contact = () => {
       </div>
       <div className="pb-6">
         Thank you for visiting our contact page. We are looking forward to
-        hearing from you!Do not hesitate to get in touch. We value your feedback
-        and suggestions!Ready to start a conversation? Reach out to us today and
+        hearing from you! Do not hesitate to get in touch. We value your feedback
+        and suggestions! Ready to start a conversation? Reach out to us today and
         let us connect!
       </div>
       <div className="pb-6">

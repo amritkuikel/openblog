@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 const NavBar = () => {
   const pathname = usePathname();
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 bg-white">
       <NavigationMenu>
         <NavigationMenuList className="flex h-16 w-[97vw] justify-between px-9">
           <NavigationMenuItem

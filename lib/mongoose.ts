@@ -12,9 +12,7 @@ export const mongooseConnect = async () => {
   if (isConnected) return;
 
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
-      dbName: "DevHub",
-    });
+    await mongoose.connect(process.env.MONGO_URL);
 
     isConnected = true;
 

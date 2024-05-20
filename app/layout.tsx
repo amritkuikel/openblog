@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import NavBar from "@/components/shared/nav-bar";
-import {mongooseConnect} from "@/lib/mongoose";
 import "@uploadthing/react/styles.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
@@ -22,7 +21,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  mongooseConnect()
   return (
     <html lang="en">
       <body className={inter.className}>

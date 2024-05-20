@@ -109,7 +109,7 @@ const CreateBlog = ({ type, id }: Props) => {
                 <FormLabel>Content</FormLabel>
                 <FormControl>
                   <Editor
-                    apiKey="htif4opazmjxpi80ulimdmybouhmd92xfk1w9exjg07582mj"
+                    apiKey={process.env.TINY_MCE}
                     onInit={(evt, editor) => {
                       // @ts-ignore
                       editorRef.current = editor;

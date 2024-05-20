@@ -1,17 +1,25 @@
 import mongoose from "mongoose";
 
-const url = process.env.MONGO_URL;
 
-export default async function mongooseConnect() {
+let isConnected: boolean = false;
+
+export const mongooseConnect = async () => {
+  mongoose.set("strictQuery", true);
+
+  if (!process.env.MONGO_URL)
+    return console.log("Missing environment variable: MONGODB_URL");
+
+  if (isConnected) return;
+
   try {
-    if (!url) {
-      throw new Error("MongoDB URL is not defined");
-    }
+    await mongoose.connect(process.env.MONGO_URL, {
+      dbName: "DevHub",
+    });
 
-    await mongoose.connect(url);
-    console.log("MongoDB connected successfully");
+    isConnected = true;
+
+    console.log("MongoDB is connected");
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
+    console.log("MongoDB connection failed", error);
   }
-}
-
+};

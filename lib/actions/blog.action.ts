@@ -1,6 +1,6 @@
 "use server";
 import { CreateBlogParams, deleteBlogParams, editBlogParams, readBlogParams } from "../types";
-import mongooseConnect from "../mongoose";
+import {mongooseConnect} from "../mongoose";
 import Blog from "@/database/blog.model";
 
 export async function createBlog(params: CreateBlogParams) {

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import NavBar from "@/components/shared/nav-bar";
-import mongooseConnect from "@/lib/mongoose";
+import {mongooseConnect} from "@/lib/mongoose";
 import "@uploadthing/react/styles.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";

@@ -2,6 +2,7 @@
 import { CreateBlogParams, deleteBlogParams, editBlogParams, readBlogParams } from "../types";
 import {mongooseConnect} from "../mongoose";
 import Blog from "@/database/blog.model";
+import { revalidatePath } from "next/cache";
 
 export async function createBlog(params: CreateBlogParams) {
   try {
@@ -13,7 +14,7 @@ export async function createBlog(params: CreateBlogParams) {
       image,
       content,
     });
-    console.log(params);
+    revalidatePath("/");
   } catch (error) {
     console.log(error);
     throw error;
@@ -48,6 +49,7 @@ export async function deleteBlog(params: deleteBlogParams) {
     await mongooseConnect();
     const { id } = params;
     const blog = await Blog.findByIdAndDelete(id);
+    await revalidatePath('/');
     return { blog };
   } catch (error) {
     console.log(error);
@@ -64,6 +66,7 @@ export async function editBlog(params: editBlogParams) {
       image,
       content,
     });
+    await revalidatePath('/');
     return { blog };
   } catch (error) {
     console.log(error);

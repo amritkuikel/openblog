@@ -33,6 +33,9 @@ const BlogPage = async ({ params }: { params: BlogPageProps }) => {
         <EditButton id={id} />
         <DeleteButton id={id} />
       </div>
+      <div>
+        
+      </div>
     </div>
   );
 };
